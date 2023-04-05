@@ -66,7 +66,6 @@ function Sidebar() {
             className={({ isActive }) =>
               isActive ? "link sidebar-active" : "link"
             }
-            end
             key={item.id}
             onClick={() => callMe(item.id)}
           >

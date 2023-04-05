@@ -13,14 +13,14 @@ import Home from "./pages/Home";
 const router = createBrowserRouter([
   { path: "/", element: <Home /> },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <Layout />,
     children: [
       {
         path: "",
         element: <ChatLayout />,
         children: [
-          // { path: "", element: <Dashboard /> },
+          { path: "", element: <Dashboard /> },
           { path: ":id", element: <UserChat /> },
         ],
       },

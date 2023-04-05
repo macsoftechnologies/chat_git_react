@@ -56,7 +56,7 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     isActive ? "nav-link active" : "nav-link"
                   }
-                  to="/dashboard/users"
+                  to="users"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
