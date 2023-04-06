@@ -5,6 +5,7 @@ import { ThemeContext } from "../../context/ThemeContextProvider";
 // import img from "./images.jpeg";
 import "./Sidebar.css";
 import Service from "../../service";
+import { MessageContext } from "../../context/MessageContextProvider";
 
 const users = [
   {
@@ -14,13 +15,13 @@ const users = [
     url: "assets/img1.jpg",
   },
   {
-    id: 2,
+    id: "2",
     name: "Konstantin Frank",
     lastMsg: "Liked that disco music",
     url: "assets/img2.jpg",
   },
   {
-    id: 3,
+    id: "3",
     name: "Gowthami Thapa",
     lastMsg: "Liked that disco music",
     url: "assets/img1.jpg",
@@ -29,7 +30,9 @@ const users = [
 
 function Sidebar() {
   const themeCntxt = useContext(ThemeContext);
+  const messageContext = useContext(MessageContext);
   const callMe = async (id) => {
+    messageContext.setUserId(id);
     try {
       const response = await Service(
         "POST",
@@ -68,6 +71,7 @@ function Sidebar() {
             }
             key={item.id}
             onClick={() => callMe(item.id)}
+            end
           >
             <div className="container chat-container">
               <div className="row p-2">
@@ -123,7 +127,7 @@ function Sidebar() {
                             <i
                               className="fa fa-video-camera"
                               aria-hidden="true"
-                            ></i>{" "}
+                            ></i>
                             &nbsp;Video Call
                           </a>
                         </li>
@@ -145,7 +149,7 @@ function Sidebar() {
                             <i
                               className="fa fa-exclamation-triangle"
                               aria-hidden="true"
-                            ></i>{" "}
+                            ></i>
                             &nbsp;Report
                           </a>
                         </li>
